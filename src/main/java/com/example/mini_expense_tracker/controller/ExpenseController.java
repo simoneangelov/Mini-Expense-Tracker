@@ -8,9 +8,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-// @RestController is a Spring annotation that marks this class as a REST controller.
-// It is used to define RESTful web services.
-// It combines @Controller and @ResponseBody, indicating that the methods return data that will be automatically converted to JSON and sent to the client.
+// This handles HTTP requests related to expenses. It defines endpoints for creating, retreiving, updating, and deleting expenses.
+// @RestController means that the methods in this class return data directly as HTTP responses, typically in a JSON format.
+// @RequestMapping("/api/expenses") annotation specifies that all the endpoints in this controller will be prefixed with "/api/expenses".
 
 @RestController
 @RequestMapping("/api/expenses")
@@ -24,6 +24,8 @@ public class ExpenseController {
     public ExpenseController(ExpenseService expenseService) {
         this.expenseService = expenseService;
     }
+
+    // --------------------------------------Defining endpoints----------------------------------------------------------
 
     // Add a new expense
     // ExpenseController receives a POST request to add a new expense, validates the data, and passes it to ExpenseService for processing.
