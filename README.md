@@ -1,6 +1,6 @@
 # Mini Expense Tracker
 
-This Mini Expense Tracker is a simple Spring Boot application designed to manage personal expenses.
+A mini expenses tracker API for all of your mini-expense-tracking needs!
 
 ## Features
 
