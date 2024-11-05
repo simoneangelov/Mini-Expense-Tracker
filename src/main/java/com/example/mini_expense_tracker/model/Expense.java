@@ -11,7 +11,7 @@ import java.time.LocalDate;
 // This is the Expense class that represents an expense record in the database.
 
 /**
- * @Entity tells JPA (like Hibernate) that this class represents a database table.
+ * '@Entity tells JPA (like Hibernate) that this class represents a database table.
  * In this case, the Expense class corresponds to an "expense" table in the database,
  * and each instance of Expense represents a row in that table.
  */
@@ -19,16 +19,18 @@ import java.time.LocalDate;
 public class Expense {
 
     /**
-     * @Id tells JPA that this field (id) is the primary key of the table.
-     * @GeneratedValue(strategy = GenerationType.IDENTITY) tells JPA that the database should automatically generate the value for the id field.
+     * 'Id' tells JPA that this field (id) is the primary key of the table.
+     * 'GeneratedValue(strategy = GenerationType.IDENTITY)' tells JPA that the database should automatically generate the value for the id field.
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     // The id field is the primary key, and the other fields below are the data for each expense record.
-    private String description;
+    @Column(name = "desrc")
+    private String desrc;
     
+    @Column(name = "amount")
     private BigDecimal amount;
     
     // Use @Column to specify the column name if it differs or to handle reserved keywords
@@ -39,8 +41,8 @@ public class Expense {
     public Expense() {}
 
     // Constructor with parameters
-    public Expense(String description, BigDecimal amount, LocalDate dateAdded) {
-        this.description = description;
+    public Expense(String desrc, BigDecimal amount, LocalDate dateAdded) {
+        this.desrc = desrc;
         this.amount = amount;
         this.dateAdded = dateAdded;
     }
@@ -53,12 +55,12 @@ public class Expense {
 
     // No setter for ID because it's auto-generated
 
-    public String getDescription() {
-        return description;
+    public String getDesrc() {
+        return desrc;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDesrc(String desrc) {
+        this.desrc = desrc;
     }
 
     public BigDecimal getAmount() {

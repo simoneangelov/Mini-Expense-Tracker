@@ -45,9 +45,9 @@ public class ExpenseService {
         Expense expense = expenseRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Expense not found for this id :: " + id));
 
-        expense.setDescription(expenseDetails.getDescription());
+        expense.setDesrc(expenseDetails.getDesrc());
         expense.setAmount(expenseDetails.getAmount());
-        expense.setDate(expenseDetails.getDate());
+        expense.setDateAdded(expenseDetails.getDateAdded());
 
         return expenseRepository.save(expense);
     }
