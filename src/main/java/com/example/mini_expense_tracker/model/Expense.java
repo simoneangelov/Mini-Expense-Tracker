@@ -1,6 +1,9 @@
 package com.example.mini_expense_tracker.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
