@@ -62,7 +62,3 @@ The application uses an in-memory H2 database. The database schema is automatica
 ## Exception Handling
 
 Custom exception handling is implemented using `ResourceNotFoundException` and `GlobalExceptionHandler` to provide meaningful error messages.
-
-## License
-
-This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for details.
