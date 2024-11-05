@@ -4,36 +4,45 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Column;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 // This is the Expense class that represents an expense record in the database.
 
-// @Entity tells JPA (like Hibernate) that this class represents a database table.
-// In this case, the Expense class corresponds to an "expenses" table in the database,
-// and each instance of Expense represents a row in that table.
+/**
+ * @Entity tells JPA (like Hibernate) that this class represents a database table.
+ * In this case, the Expense class corresponds to an "expense" table in the database,
+ * and each instance of Expense represents a row in that table.
+ */
 @Entity
 public class Expense {
 
-    // @Id tells JPA that this field (id) is the primary key of the table.
-    // @GeneratedValue(strategy = GenerationType.IDENTITY) tells JPA that the database should automatically generate (!!) the value for the id field.
+    /**
+     * @Id tells JPA that this field (id) is the primary key of the table.
+     * @GeneratedValue(strategy = GenerationType.IDENTITY) tells JPA that the database should automatically generate the value for the id field.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     // The id field is the primary key, and the other fields below are the data for each expense record.
     private String description;
+    
     private BigDecimal amount;
-    private LocalDate date;
+    
+    // Use @Column to specify the column name if it differs or to handle reserved keywords
+    @Column(name = "date_added") // Updated column name to avoid reserved keyword
+    private LocalDate dateAdded;
 
     // Default constructor
     public Expense() {}
 
     // Constructor with parameters
-    public Expense(String description, BigDecimal amount, LocalDate date) {
+    public Expense(String description, BigDecimal amount, LocalDate dateAdded) {
         this.description = description;
         this.amount = amount;
-        this.date = date;
+        this.dateAdded = dateAdded;
     }
 
     // Getters and Setters -----------------------------------------------------
@@ -60,11 +69,11 @@ public class Expense {
         this.amount = amount;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public LocalDate getDateAdded() {
+        return dateAdded;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setDateAdded(LocalDate dateAdded) {
+        this.dateAdded = dateAdded;
     }
 }
