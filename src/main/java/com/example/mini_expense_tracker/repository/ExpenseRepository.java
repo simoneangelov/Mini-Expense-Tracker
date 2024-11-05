@@ -13,5 +13,9 @@ import org.springframework.stereotype.Repository;
 public interface ExpenseRepository extends JpaRepository<Expense, Long> {
     // Additional query methods can be defined here if needed
 
-    // What do I do in this interface?
+    // The ExpenseRepository interface extends JpaRepository, which is a part of Spring Data JPA.
+    // By extending JpaRepository, you automatically inherit a set of CRUD operations for the Expense entity WITHOUT
+    // needing to explicitly define them in the interface. This is why the ExpenseRepository interface appears empty.
+    // For context, JpaRepository is a Spring Data interface that provides a set of standard CRUD operations for entities.
+    // ^^ By extending JpaRepository, my repository interface inherits these methods, allowing me to perform database operations without having to write boilerplate code.
 }
