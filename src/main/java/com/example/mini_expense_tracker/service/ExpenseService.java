@@ -13,6 +13,7 @@ import java.util.Optional;
 // A service component is a class that contains the core business logic of the application.
 // Specifically, it processes data, enforces rules, and interacts with the data layer (repository) to perform operations on the data.
 // Methods like addExpense, getAllExpenses, getExpenseById, updateExpense, and deleteExpense handle the respective CRUD operations.
+// ExpenseService contains methods for creating, retrieving, updating, and deleting expenses. It may also handle exceptions or enforce validation rules before passing data to the repository.
 
 @Service
 public class ExpenseService {

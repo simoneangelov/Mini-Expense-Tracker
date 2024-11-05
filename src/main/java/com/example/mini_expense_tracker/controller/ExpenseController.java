@@ -16,9 +16,10 @@ import java.util.List;
 @RequestMapping("/api/expenses")
 public class ExpenseController {
 
-    // Instance of ExpenseService is injected into the controller.
+    // Declares expenseService as a field (!!) in the ExpenseController class.
     private final ExpenseService expenseService;
 
+    // Instance of ExpenseService is injected into the controller.
     @Autowired
     public ExpenseController(ExpenseService expenseService) {
         this.expenseService = expenseService;
